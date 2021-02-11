@@ -6,6 +6,8 @@ window.addEventListener('DOMContentLoaded', () => {
     fetch('https://fakestoreapi.com/products')
     .then(response => response.json())
     .then(data => localStorage.setItem("data", JSON.stringify(data)));
+    localStorage.setItem("count", "0");
+    localStorage.setItem("cart", "");
   }
 
   let count = localStorage.getItem("count");
