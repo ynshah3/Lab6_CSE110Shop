@@ -6,12 +6,17 @@ window.addEventListener('DOMContentLoaded', () => {
     fetch('https://fakestoreapi.com/products')
     .then(response => response.json())
     .then(data => localStorage.setItem("data", JSON.stringify(data)));
-    localStorage.setItem("count", "0");
-    localStorage.setItem("cart", "");
   }
 
   let count = localStorage.getItem("count");
-  let cartList = localStorage.getItem("cart").split(" ");
+  let cartList = []
+
+  if (count == null) {
+    count = 0;
+  }
+  else {
+    cartList = localStorage.getItem("cart").split(" ");
+  }
 
   document.getElementById("cart-count").innerHTML = count;
 
